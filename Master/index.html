@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
-
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -14,21 +13,34 @@
     <!-- Timer with span id to give it the number -->
     <div class="timer">Time: <span id="time">0</span></div>
 
+    <!-- Start screen -->
     <div class="wrapper">
-        <div id="start-screen" class="start">
-            
+        <div id="start-screen">
+            <h1>Coding Quiz Challenge</h1>
+            <p>
+              Try to answer the following code-related questions within the time
+              limit. Keep in mind that incorrect answers will penalize your
+              score/time by ten seconds!
+            </p>
+            <button id="start">Start Quiz</button>
+          </div>
+    <!-- Questions -->
+        <div id="questions" class="hide">
+            <!-- question title which will change -->
+            <h2 id="question-title"><!-- this space stays empty because its going to change--></h2>
+            <ul id="question-choices"><!-- choices are going to change as well --></ul>
+        </div>
+        <div id="result-screen" class="hide">
+            <hr>
+            <br>
+            <p id="resultText"></p>
+        </div>
+    <!-- finished-screen -->
+        <div id="end-screen" class="hide">
+            <h1>You are Done!!!</h1>
+            <p>Your score is <span id="final-score"></span></p>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
 
 
     
