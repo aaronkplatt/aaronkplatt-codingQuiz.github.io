@@ -5,13 +5,13 @@ var wrongAnswerPenalty = 15000; // 15 seconds deducted if chosen incorrectly
 var answerTimer;
 var quizTimer;
 var answerTimeOut = 0;
- 
+
 //questions
 var questionCounter = 0;
 var questionTitle = document.getElementById("question-title"); 
 var questionChoices = document.getElementById("question-choices");
 
-//other variables
+//Start and Finished
 var startBtn = document.getElementById("start");
 var finalScore = document.getElementById("final-score");
 
@@ -23,6 +23,12 @@ var endScreenEl = document.getElementById("end-screen");
 //result of answer (Correct/Wrong)
 var resultScreenEl = document.getElementById("result-screen");
 var resultText = document.getElementById("resultText");
+
+//submition
+// var initials = document.getElementById("initials");
+var submitBtn = document.getElementById("submitBtn");
+var score = document.getElementById("final-score");
+var userInitialsInput = document.querySelector("#initials");
 
 //Start (Btn on the bottom of this js file) this function starts the quiz by clicking the button and generating the questions to appear while also showing the timer beginning to count down.
 function startQuiz() {
@@ -38,7 +44,7 @@ function startQuiz() {
 function getQuestions() {
     questionTitle.innerHTML = questions[questionCounter].title;
     questionChoices.innerHTML = ""; // removes old choices
-
+    
     // looping the question choices and converting them into buttons and li. 
     for (let i = 0; i < questions[questionCounter].choices.length; i++) {
         var li = document.createElement("li");
@@ -46,7 +52,7 @@ function getQuestions() {
         var choice = questions[questionCounter].choices[i];
         button.innerHTML = choice;
         button.value = choice;
-    //on click function for the users choice.
+        //on click function for the users choice.
         button.addEventListener("click", function() {
             answerClick(this.value);
         });
@@ -103,7 +109,7 @@ function showAnswer(isCorrect) {
 //This screen tells you if you are right or wrong.
 function hideResultScreen() {
     resultScreenEl.setAttribute("class", "hide");
-
+    
 }
 
 //When you complete the quiz this function gets called and stops the timer which is your score
@@ -114,6 +120,28 @@ function showEndScreen() {
     finalScore.innerHTML = time/1000;
 }
 
-//btn priorities
-startBtn.onclick = startQuiz;
 
+//Submiting score and saves it to a new variable called user which 
+function saveScores() {
+    var initials = userInitialsInput.value.trim();
+    //Calls a new var "user" that will allow you to pass the dat through local storage
+    if (initials !== "") {
+        var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    
+        var user = {
+            initials: initials,
+            score: time/1000
+        };
+        
+        highscores.push(user);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+    }
+    window.location.href = "highscore.html";
+}
+
+
+
+//btn priorities
+
+submitBtn.onclick = saveScores;
+startBtn.onclick = startQuiz;

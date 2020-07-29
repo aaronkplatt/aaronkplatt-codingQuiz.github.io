@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Highscores page link -->
-    <div class ="highscores"><a href="highscore.html">View Highscores</a></div>
+    <div class ="viewHighscores"><a href="highscore.html">View Highscores</a></div>
 
     <!-- Timer with span id to give it the number -->
     <div class="timer">Time: <span id="time">0</span></div>
@@ -39,6 +39,10 @@
         <div id="end-screen" class="hide">
             <h1>You are Done!!!</h1>
             <p>Your score is <span id="final-score"></span></p>
+            <p>
+                Enter Initials: <input type="text" id="initials">
+                <button id="submitBtn">Submit</button>
+            </p>
         </div>
     </div>
 

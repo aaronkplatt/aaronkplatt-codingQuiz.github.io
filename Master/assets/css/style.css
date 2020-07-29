@@ -2,3 +2,24 @@
     display: none;
 }
 
+.timer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: larger;
+}
+
+.wrapper {
+    margin: 100px auto 0 auto;
+    max-width: 600px;
+  }
+
+.viewHighscores {
+    top: 20px;
+    left: 20px;
+    font-size: larger;
+}
+
+body {
+    background-color: #b8b8b8;
+}
