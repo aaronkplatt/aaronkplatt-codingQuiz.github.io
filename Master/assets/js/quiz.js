@@ -25,7 +25,6 @@ var resultScreenEl = document.getElementById("result-screen");
 var resultText = document.getElementById("resultText");
 
 //submition
-// var initials = document.getElementById("initials");
 var submitBtn = document.getElementById("submitBtn");
 var score = document.getElementById("final-score");
 var userInitialsInput = document.querySelector("#initials");
@@ -109,17 +108,16 @@ function showAnswer(isCorrect) {
 //This screen tells you if you are right or wrong.
 function hideResultScreen() {
     resultScreenEl.setAttribute("class", "hide");
-    
 }
 
 //When you complete the quiz this function gets called and stops the timer which is your score
 function showEndScreen() {
+    hideResultScreen();
     clearInterval(quizTimer);
     questionsEl.setAttribute("class", "hide");
     endScreenEl.removeAttribute("class");
     finalScore.innerHTML = time/1000;
 }
-
 
 //Submiting score and saves it to a new variable called user which 
 function saveScores() {
@@ -127,21 +125,16 @@ function saveScores() {
     //Calls a new var "user" that will allow you to pass the dat through local storage
     if (initials !== "") {
         var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-    
         var user = {
             initials: initials,
             score: time/1000
         };
-        
         highscores.push(user);
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
     }
     window.location.href = "highscore.html";
 }
 
-
-
 //btn priorities
-
 submitBtn.onclick = saveScores;
 startBtn.onclick = startQuiz;

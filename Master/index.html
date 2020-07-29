@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coding Quiz</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        
+    </head>
 <body>
     <!-- Highscores page link -->
     <div class ="viewHighscores"><a href="highscore.html">View Highscores</a></div>
@@ -28,11 +29,11 @@
         <div id="questions" class="hide">
             <!-- question title which will change -->
             <h2 id="question-title"><!-- this space stays empty because its going to change--></h2>
-            <ul id="question-choices"><!-- choices are going to change as well --></ul>
+            <ul id="question-choices" style="list-style-type: none;"><!-- choices are going to change as well --></ul>
         </div>
+    <!-- result screen -->
         <div id="result-screen" class="hide">
             <hr>
-            <br>
             <p id="resultText"></p>
         </div>
     <!-- finished-screen -->
@@ -45,9 +46,6 @@
             </p>
         </div>
     </div>
-
-
-    
     <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/quiz.js"></script>
 </body>
